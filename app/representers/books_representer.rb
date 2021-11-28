@@ -15,7 +15,7 @@ class BooksRepresenter
     end
 
     private
-
+ 
     def author_name(book)
         "#{book.author.first_name} #{book.author.last_name}"
     end
