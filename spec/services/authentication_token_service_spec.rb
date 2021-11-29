@@ -3,7 +3,8 @@ require 'rails_helper'
 describe AuthenticationTokenService do
     describe '.call' do
         it 'should turn an authentication token' do
-            token = described_class.call
+            token = described_class.call(1)
+
             decoded_token = JWT.decode(
                 token, 
                 described_class::HMAC_SECRET, 
@@ -13,7 +14,7 @@ describe AuthenticationTokenService do
             
             expect(decoded_token).to eq(
                 [
-                    {"test" => "blah"},
+                    {"user_id" => 1},
                     {"alg" => described_class::ALGORITHM_TYPE}
                 ]
             )
