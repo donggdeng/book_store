@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe AuthenticationTokenService do
-    describe '.call' do
+    describe '.encode' do
         it 'should turn an authentication token' do
-            token = described_class.call(1)
+            token = described_class.encode(1)
 
             decoded_token = JWT.decode(
                 token, 
